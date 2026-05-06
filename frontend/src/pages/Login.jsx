@@ -26,7 +26,16 @@ const Login = () => {
       }
       navigate('/dashboard');
     } catch (err) {
-      setErrorMsg(err.response?.data?.error || 'Authentication failed. Please try again.');
+      if (err.response?.data?.issues) {
+        const issues = err.response.data.issues;
+        const msgs = [];
+        if (issues.fullName?._errors) msgs.push(...issues.fullName._errors);
+        if (issues.emailAddress?._errors) msgs.push(...issues.emailAddress._errors);
+        if (issues.secretHash?._errors) msgs.push(...issues.secretHash._errors);
+        setErrorMsg(msgs.join(', ') || 'Validation failed.');
+      } else {
+        setErrorMsg(err.response?.data?.details || err.response?.data?.error || 'Authentication failed. Please try again.');
+      }
     }
   };
 

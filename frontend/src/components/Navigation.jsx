@@ -13,6 +13,10 @@ const Navigation = () => {
     { path: '/tasks', label: 'Tasks', icon: CheckSquare },
   ];
 
+  if (currentUser?.accessLevel === 'Admin') {
+    navLinks.push({ path: '/projects', label: 'Projects', icon: Briefcase });
+  }
+
   return (
     <nav className="w-64 bg-slate-900 text-white flex flex-col h-screen fixed left-0 top-0 border-r border-slate-800">
       <div className="p-6 mb-8 flex items-center gap-3">

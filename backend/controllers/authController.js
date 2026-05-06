@@ -47,7 +47,8 @@ export const registerUser = async (req, res) => {
       }
     });
   } catch (err) {
-    res.status(500).json({ error: 'Internal server error during registration' });
+    console.error("Signup error:", err);
+    res.status(500).json({ error: 'Internal server error during registration', details: err.message });
   }
 };
 
@@ -86,6 +87,7 @@ export const authenticateUser = async (req, res) => {
       }
     });
   } catch (err) {
-    res.status(500).json({ error: 'Internal server error during authentication' });
+    console.error("Login error:", err);
+    res.status(500).json({ error: 'Internal server error during authentication', details: err.message });
   }
 };

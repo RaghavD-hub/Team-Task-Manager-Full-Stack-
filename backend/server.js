@@ -8,6 +8,7 @@ import authRoutes from './routes/authRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import taskRoutes from './routes/taskRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ const launchServer = async () => {
   app.use('/api/projects', projectRoutes);
   app.use('/api/tasks', taskRoutes);
   app.use('/api/dashboard', dashboardRoutes);
+  app.use('/api/users', userRoutes);
 
   // Serve Frontend in Production
   if (process.env.NODE_ENV === 'production') {

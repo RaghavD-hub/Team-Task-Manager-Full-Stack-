@@ -28,18 +28,13 @@ const userBaseSchema = new mongoose.Schema({
 });
 
 // Intercept save to hash password
-userBaseSchema.pre('save', async function(next) {
+userBaseSchema.pre('save', async function() {
   const account = this;
-  if (!account.isModified('secretHash')) return next();
+  if (!account.isModified('secretHash')) return;
 
-  try {
-    const saltRounds = 10;
-    const generatedSalt = await bcrypt.genSalt(saltRounds);
-    account.secretHash = await bcrypt.hash(account.secretHash, generatedSalt);
-    next();
-  } catch (err) {
-    next(err);
-  }
+  const saltRounds = 10;
+  const generatedSalt = await bcrypt.genSalt(saltRounds);
+  account.secretHash = await bcrypt.hash(account.secretHash, generatedSalt);
 });
 
 // Verify password method
