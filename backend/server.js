@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 import authRoutes from './routes/authRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
@@ -28,11 +29,15 @@ const launchServer = async () => {
 
   // Serve Frontend in Production
   if (process.env.NODE_ENV === 'production') {
-    const __dirname = path.resolve();
-    app.use(express.static(path.join(__dirname, '../frontend/dist')));
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    
+    // Static folder is ../frontend/dist because server.js is in backend/
+    const frontendPath = path.join(__dirname, '../frontend/dist');
+    app.use(express.static(frontendPath));
     
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, '../frontend/dist', 'index.html'));
+      res.sendFile(path.resolve(frontendPath, 'index.html'));
     });
   } else {
     // Health check
