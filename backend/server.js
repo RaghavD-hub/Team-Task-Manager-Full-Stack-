@@ -55,7 +55,7 @@ const launchServer = async () => {
     console.log('Database connected successfully');
     
     const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server active on port ${PORT}`);
     });
   } catch (error) {
