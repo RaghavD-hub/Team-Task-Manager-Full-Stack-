@@ -40,17 +40,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Decorative background blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-500/30 rounded-full blur-[100px]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px]" />
-
-      <div className="glass-panel w-full max-w-md p-8 relative z-10">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="bg-white w-full max-w-md p-8 rounded-[14px] border border-brand-border z-10">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-2">
+          <h2 className="text-[2rem] font-[800] tracking-[-0.04em] text-[#1A1A18] mb-2">
             {isLoginView ? 'Welcome Back' : 'Create Account'}
           </h2>
-          <p className="text-slate-500">
+          <p className="text-brand-textMuted text-sm">
             {isLoginView ? 'Enter your credentials to access your workspace.' : 'Sign up to start collaborating.'}
           </p>
         </div>
@@ -64,7 +60,7 @@ const Login = () => {
         <form onSubmit={handleAuthSubmit} className="space-y-4">
           {!isLoginView && (
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+              <label className="block text-sm font-medium text-[#1A1A18] mb-1">Full Name</label>
               <input
                 type="text"
                 name="fullName"
@@ -77,7 +73,7 @@ const Login = () => {
             </div>
           )}
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+            <label className="block text-sm font-medium text-[#1A1A18] mb-1">Email Address</label>
             <input
               type="email"
               name="emailAddress"
@@ -89,7 +85,7 @@ const Login = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Password</label>
+            <label className="block text-sm font-medium text-[#1A1A18] mb-1">Password</label>
             <input
               type="password"
               name="secretHash"
@@ -103,7 +99,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-all shadow-lg hover:shadow-xl mt-4"
+            className="w-full bg-[#1A1A18] text-white font-[700] py-3 rounded-lg mt-4"
           >
             {isLoginView ? 'Sign In' : 'Sign Up'}
           </button>
@@ -112,7 +108,7 @@ const Login = () => {
         <div className="mt-8 text-center">
           <button
             onClick={() => setIsLoginView(!isLoginView)}
-            className="text-sm text-brand-600 hover:text-brand-700 font-medium transition-colors"
+            className="text-sm text-[#1A1A18] font-medium hover:underline"
           >
             {isLoginView ? "Don't have an account? Sign up" : "Already have an account? Sign in"}
           </button>

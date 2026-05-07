@@ -8,15 +8,17 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#f0fdfa',
-          100: '#ccfbf1',
-          500: '#14b8a6', // Teal main
-          600: '#0d9488',
-          900: '#134e4a',
+          bg: '#F5F3EE',
+          sidebar: '#1A1A18',
+          accent: '#D4FF57',
+          cardBg: '#E8E4DC',
+          textMuted: '#8C8880',
+          border: '#D9D5CC',
         },
-        slate: {
-          850: '#151e2e',
-          900: '#0f172a',
+        status: {
+          todo: '#C9C5BC',
+          inprogress: '#F5C842',
+          done: '#2ECC71',
         }
       },
       fontFamily: {

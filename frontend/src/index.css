@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,16 +6,24 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+    @apply bg-[#F5F3EE] text-[#1A1A18] font-sans antialiased;
   }
 }
 
 @layer components {
-  .glass-panel {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl;
+  .page-title {
+    @apply text-[2rem] font-[800] tracking-[-0.04em];
+  }
+  
+  .card-title {
+    @apply font-[600] text-[0.95rem];
+  }
+  
+  .muted-label {
+    @apply text-[0.75rem] text-[#8C8880] uppercase tracking-[0.08em];
   }
   
   .input-field {
-    @apply w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:bg-white focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 outline-none transition-all duration-200;
+    @apply w-full px-4 py-3 rounded-xl border border-brand-border bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent/50 focus:border-brand-accent transition-all duration-200;
   }
 }
