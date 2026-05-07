@@ -49,7 +49,9 @@ const launchServer = async () => {
   const dbUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/team-task-manager';
   
   try {
-    await mongoose.connect(dbUri);
+    await mongoose.connect(dbUri, {
+      family: 4 // Force IPv4, prevents IPv6 DNS resolution issues in Node 18+
+    });
     console.log('Database connected successfully');
     
     const PORT = process.env.PORT || 5000;
